@@ -27,7 +27,7 @@ export default function Title({ name, profession, accentColor }) {
         <Name>{name ? name : 'Antonella Blake'}</Name>
       </ReactFitty>
 
-      <Profession color={accentColor ? accentColor : '#FFB74D'}>
+      <Profession color={accentColor.hex}>
         {profession ? profession : 'magician'}
       </Profession>
     </div>

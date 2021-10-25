@@ -16,7 +16,8 @@ export default function Form({
         Select accent color
       </label>
       <SwatchesPicker
-        color={state.accentColor}
+        color={state.accentColor.hex}
+        accentColor={state.accentColor}
         onChangeComplete={handleColorChange}
       />
       <div className="mb-3 mt-3">

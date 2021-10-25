@@ -11,14 +11,14 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      accentColor: '',
+      accentColor: { hex: '#D1C4E9' },
       name: '',
       email: '',
       phone: '',
       summary: '',
       skills: '',
       experience:
-        '<h6>MGM Studios</h6><p><em>Senior Magician (2018 - Present)</em></p><ul><li>Responsibility 1</li><li>Responsibility 2</li><li>Responsibility 3</li><li>Accomplishment 1</li><li>Accomplishment 2</li></ul><h6>Luxor, Las Vegas</h6><p><em>Magician Apprentice (2008 - 2018)</em></p><ul><li>Responsibility 1</li><li>Responsibility 2</li><li>Responsibility 3</li><li>Accomplishment 1</li><li>Accomplishment 2</li></ul>',
+        '<h6>MGM Studios</h6><p><em>Senior Magician (2018 - Present)</em></p><ul><li>Wizard ipsum dolor amet wizard Ipsum is how wizards working with non-magical folk and slip a little magic into their workday—without breaching any secrecy laws</li><li>Many know lorum ipsum as the kind of Latin-looking filler copy used on website</li><li>What isn’t widely known is that Lorum Ipsum isn’t the jumbled Latin created by Cicero. </li><li>Accomplishment 1</li><li>Accomplishment 2</li></ul><h6>Luxor, Las Vegas</h6><p><em>Magician Apprentice (2008 - 2018)</em></p><ul><li>Task ahead Greenway embrace unwise hatched flash-flame juice behaving hat spirits wood. </li><li>J.R.R. Tolkien mirror desired supposed penalty marches arts. Irons host nobody line marshland lasts deed massing deadliest Aragorn! </li><li>Gateway particular iron-forged mat party Were-worms whyfors fortunate. Hard price leg Elros visiting?</li><li>Accomplishment 1</li><li>Accomplishment 2</li></ul>',
       education:
         '<h6>Advanced Magic Post-Graduate School</h6><p>Doctor of Magic Education (2016)</p><h6>School of Wizards</h6><p>Master of Magic, certificate in Magic Literature (2008)</p><h6>Hogwarts Prepatory School</h6><p>Bachelor of Magic Science (2004)</p>',
     };

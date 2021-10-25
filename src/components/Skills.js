@@ -5,16 +5,17 @@ const SkillList = styled.ul`
   padding-left: 0;
   display: flex;
   flex-wrap: wrap;
-  li {
-    list-style-type: none;
-    background-color: #ffb729;
-    padding: 4px 8px;
-    margin: 0px 8px 8px 0px;
-    border-radius: 4px;
-  }
 `;
 
-export default function SectionHeading({ skills }) {
+const SkillLi = styled.li`
+  list-style-type: none;
+  background-color: ${(props) => (props.color ? props.color : 'green')};
+  padding: 4px 8px;
+  margin: 0px 8px 8px 0px;
+  border-radius: 4px;
+`;
+
+export default function SectionHeading({ skills, accentColor }) {
   let skillItems = [];
 
   if (skills.length > 0) {
@@ -32,7 +33,12 @@ export default function SectionHeading({ skills }) {
   return (
     <SkillList>
       {skillItems.map(
-        (skill) => skill.trim().length > 0 && <li key={skill}>{skill}</li>
+        (skill) =>
+          skill.trim().length > 0 && (
+            <SkillLi color={accentColor.hex} key={skill}>
+              {skill}
+            </SkillLi>
+          )
       )}
     </SkillList>
   );

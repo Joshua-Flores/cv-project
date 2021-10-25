@@ -12,7 +12,7 @@ const Paper = styled.div`
   padding: 32px;
   background-color: white;
   width: 100%;
-  height: 129.4%;
+  max-width: 1063px;
 `;
 
 const HeadingBlock = styled.div`
@@ -27,55 +27,57 @@ const Block = styled.div`
 
 export default function LivePreview({ state }) {
   return (
-    <Paper>
-      <div className="row">
-        <div className="col-md-8">
-          <HeadingBlock>
-            <Title
-              name={state.name}
-              profession={state.profession}
-              accentColor={state.accentColor.hex}
-            />
-          </HeadingBlock>
+    <div>
+      <Paper>
+        <div className="row">
+          <div className="col-md-8">
+            <HeadingBlock>
+              <Title
+                name={state.name}
+                profession={state.profession}
+                accentColor={state.accentColor}
+              />
+            </HeadingBlock>
+          </div>
+          <div className="col-md-4">
+            <HeadingBlock>
+              <Contact
+                email={state.email}
+                location={state.location}
+                phone={state.phone}
+              ></Contact>
+            </HeadingBlock>
+          </div>
         </div>
-        <div className="col-md-4">
-          <HeadingBlock>
-            <Contact
-              email={state.email}
-              location={state.location}
-              phone={state.phone}
-            ></Contact>
-          </HeadingBlock>
+        <div className="row">
+          <div className="col-md-8">
+            <Block>
+              <SectionHeading title="About me" />
+              <Summary summary={state.summary} />
+            </Block>
+          </div>
+          <div className="col-md-4">
+            <Block>
+              <SectionHeading title="Skills" />
+              <Skills skills={state.skills} accentColor={state.accentColor} />
+            </Block>
+          </div>
         </div>
-      </div>
-      <div className="row">
-        <div className="col-md-8">
-          <Block>
-            <SectionHeading title="About me" />
-            <Summary summary={state.summary} />
-          </Block>
+        <div className="row">
+          <div className="col-md-8">
+            <Block>
+              <SectionHeading title="Work Experience" />
+              <FreeText content={state.experience} />
+            </Block>
+          </div>
+          <div className="col-md-4">
+            <Block>
+              <SectionHeading title="Education" />
+              <FreeText content={state.education} />
+            </Block>
+          </div>
         </div>
-        <div className="col-md-4">
-          <Block>
-            <SectionHeading title="Skills" />
-            <Skills skills={state.skills} />
-          </Block>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-md-8">
-          <Block>
-            <SectionHeading title="Work Experience" />
-            <FreeText content={state.experience} />
-          </Block>
-        </div>
-        <div className="col-md-4">
-          <Block>
-            <SectionHeading title="Education" />
-            <FreeText content={state.education} />
-          </Block>
-        </div>
-      </div>
-    </Paper>
+      </Paper>
+    </div>
   );
 }
