@@ -12,7 +12,7 @@ const Paper = styled.div`
   padding: 32px;
   background-color: white;
   width: 100%;
-  max-width: 1063px;
+  margin-bottom: 16px;
 `;
 
 const HeadingBlock = styled.div`

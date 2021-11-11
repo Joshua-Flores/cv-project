@@ -6,6 +6,8 @@ body {
   padding: 48px 24px 24px 24px;
 }
 
+h2,
+h3,
 h4 {
   font-weight: 700;
 }
@@ -13,6 +15,23 @@ h4 {
 h6 {
   font-weight: 700;
   margin-bottom: 48x;
+}
+
+.stepper {
+  margin-bottom: 24px;
+}
+
+.RFS-Label {
+  color: gray;
+}
+
+.RFS-StepButton.active + div > span {
+  font-weight: 700;
+  color: #212529;
+}
+
+label.form-label {
+  color: ;
 }
 
 .sun-editor-editable h6 {

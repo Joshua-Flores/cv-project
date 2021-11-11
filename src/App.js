@@ -5,12 +5,15 @@ import React, { Component } from 'react';
 import Form from './components/Form';
 import LivePreview from './components/LivePreview';
 import Hero from './components/Hero';
+import styled from 'styled-components';
+import { Stepper, Step } from 'react-form-stepper';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      activeStep: 0,
       accentColor: { hex: '#D1C4E9' },
       name: '',
       email: '',
@@ -27,6 +30,7 @@ export default class App extends Component {
     this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleExperienceChange = this.handleExperienceChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   handleColorChange(color) {
@@ -55,23 +59,43 @@ export default class App extends Component {
     });
   }
 
+  handleFormSubmit(e) {
+    e.preventDefault();
+    this.setState({
+      activeStep: 1,
+    });
+  }
+
   render() {
     return (
-      <div className="container-fluid">
+      <div className="container">
         <Hero />
         <div className="row">
-          <div className="col-md-4">
-            <Form
-              handleInputChange={this.handleInputChange}
-              handleExperienceChange={this.handleExperienceChange}
-              handleEducationChange={this.handleEducationChange}
-              handleColorChange={this.handleColorChange}
-              state={this.state}
-            />
-          </div>
-          <div className="col-md-8">
-            <h4>Live Preview</h4>
-            <LivePreview state={this.state} />
+          <div className="col-md-12">
+            <Stepper
+              className="stepper"
+              activeStep={this.state.activeStep}
+              styleConfig={{
+                activeBgColor: 'hsl(216,98%,52%)',
+                completedBgColor: 'hsl(216,98%,52%)',
+                labelFontSize: '1rem',
+              }}
+            >
+              <Step label="Enter your information" />
+              <Step label="View Preview" />
+              <Step label="Download" />
+            </Stepper>
+            {this.state.activeStep === 0 && (
+              <Form
+                handleInputChange={this.handleInputChange}
+                handleExperienceChange={this.handleExperienceChange}
+                handleEducationChange={this.handleEducationChange}
+                handleColorChange={this.handleColorChange}
+                state={this.state}
+                handleFormSubmit={this.handleFormSubmit}
+              />
+            )}
+            {this.state.activeStep === 1 && <LivePreview state={this.state} />}
           </div>
         </div>
       </div>

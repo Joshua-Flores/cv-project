@@ -5,11 +5,12 @@ const AppName = styled.h1`
   font-size: 48px;
   font-weight: 700;
   line-height: 1;
+  text-align: center;
 `;
 
 const Tagline = styled.p`
-  margin-bottom: 48px;
   font-size: 16px;
+  text-align: center;
 `;
 
 export default function Hero() {
