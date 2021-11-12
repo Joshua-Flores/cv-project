@@ -6,6 +6,15 @@ import styled from 'styled-components';
 import SectionHeading from './SectionHeading';
 import Skills from './Skills';
 import FreeText from './FreeText';
+import {
+  PDFViewer,
+  PDFDownloadLink,
+  Document,
+  Page,
+  Text,
+  View,
+  StyleSheet,
+} from '@react-pdf/renderer';
 
 const Paper = styled.div`
   border: 1px solid hsl(0, 0%, 90%);
@@ -25,7 +34,24 @@ const Block = styled.div`
   height: 100%;
 `;
 
-export default function LivePreview({ state }) {
+const ButtonGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const styles = StyleSheet.create({
+  page: {
+    flexDirection: 'row',
+    backgroundColor: '#E4E4E4',
+  },
+  section: {
+    margin: 10,
+    padding: 10,
+    flexGrow: 1,
+  },
+});
+
+export default function LivePreview({ state, handleStepChange }) {
   return (
     <div>
       <Paper>
@@ -78,6 +104,22 @@ export default function LivePreview({ state }) {
           </div>
         </div>
       </Paper>
+      <ButtonGroup>
+        <button
+          className="btn btn-outline-primary"
+          onClick={handleStepChange}
+          value={0}
+        >
+          Edit information
+        </button>
+        <button
+          className="btn btn-primary"
+          onClick={handleStepChange}
+          value={2}
+        >
+          Download
+        </button>
+      </ButtonGroup>
     </div>
   );
 }

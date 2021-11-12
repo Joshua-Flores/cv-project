@@ -14,8 +14,12 @@ export default function Form({
   handleEducationChange,
   handleExperienceChange,
   handleInputChange,
-  handleFormSubmit,
+  handleStepChange,
 }) {
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
       <form onSubmit={handleFormSubmit}>
@@ -27,7 +31,7 @@ export default function Form({
           accentColor={state.accentColor}
           onChangeComplete={handleColorChange}
         />
-        <div className="mb-3 mt-3">
+        <div className="mb-4 mt-4">
           <label htmlFor="name" className="form-label">
             Name
           </label>
@@ -40,7 +44,7 @@ export default function Form({
             onChange={handleInputChange}
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-4">
           <label htmlFor="name" className="form-label">
             Profession
           </label>
@@ -54,7 +58,7 @@ export default function Form({
             onChange={handleInputChange}
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-4">
           <label htmlFor="email" className="form-label">
             Email
           </label>
@@ -67,7 +71,7 @@ export default function Form({
             onChange={handleInputChange}
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-4">
           <label htmlFor="phone" className="form-label">
             Phone number
           </label>
@@ -80,7 +84,7 @@ export default function Form({
             onChange={handleInputChange}
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-4">
           <label htmlFor="location" className="form-label">
             Location
           </label>
@@ -94,7 +98,7 @@ export default function Form({
             onChange={handleInputChange}
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-4">
           <label htmlFor="summary" className="form-label">
             Summary
           </label>
@@ -108,7 +112,7 @@ export default function Form({
             rows="3"
           ></textarea>
         </div>
-        <div className="mb-3">
+        <div className="mb-4">
           <label htmlFor="skills" className="form-label">
             Skills
           </label>
@@ -125,7 +129,7 @@ export default function Form({
             Enter your skills separated by a comma.
           </small>
         </div>
-        <div className="mb-3">
+        <div className="mb-4">
           <label htmlFor="Experience" className="form-label">
             Experience
           </label>
@@ -141,7 +145,7 @@ export default function Form({
             }}
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-4">
           <label htmlFor="Education" className="form-label">
             Education
           </label>
@@ -157,7 +161,13 @@ export default function Form({
             }}
           />
         </div>
-        <Submit className="btn btn-primary">View Live Preview</Submit>
+        <Submit
+          className="btn btn-primary"
+          onClick={handleStepChange}
+          value={1}
+        >
+          View Preview
+        </Submit>
       </form>
     </div>
   );

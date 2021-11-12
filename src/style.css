@@ -17,6 +17,10 @@ h6 {
   margin-bottom: 48x;
 }
 
+.container {
+  max-width: 1000px;
+}
+
 .stepper {
   margin-bottom: 24px;
 }
@@ -31,7 +35,7 @@ h6 {
 }
 
 label.form-label {
-  color: ;
+  font-weight: 600;
 }
 
 .sun-editor-editable h6 {
